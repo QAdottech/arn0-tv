@@ -58,6 +58,19 @@ window.LAUNCHER_CONFIG = {
         unit: 'celsius'         // 'celsius' | 'fahrenheit'
     },
 
+    // An image shown at the top right of Home, e.g. 'img/logo/yours.svg' (src/img/logo/ is
+    // gitignored). Light artwork suits the dark background. null shows nothing.
+    logo: null,
+
+    /*
+     * Wi-Fi details shown on Home so guests can join. Not something to keep in the repository,
+     * so set them in config.local.js. Leave ssid null and the card never appears.
+     */
+    wifi: {
+        ssid: null,
+        password: null
+    },
+
     /*
      * EXPERIMENTAL navigation sound. Synthesised, so there is no audio file. `move` plays when
      * focus changes, `edge` when it cannot (the end of a row). Tune by ear in the browser

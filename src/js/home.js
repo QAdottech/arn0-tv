@@ -178,8 +178,34 @@
             if (!input.hidden) row2.appendChild(inputTile(input));
         });
         $('inputs-section').classList.toggle('hidden', !row2.children.length);
+        renderWifi(row2.children.length > 0);
+        renderLogo();
         applyInputStatus();
         if (UI.isVisible('home')) UI.refresh();
+    }
+
+    function renderLogo() {
+        var logo = $('logo');
+        if (cfg.logo && logo.getAttribute('src') !== cfg.logo) logo.src = cfg.logo;
+        logo.classList.toggle('hidden', !cfg.logo);
+    }
+
+    // Takes the Consoles row's place when there are no consoles, else sits top right.
+    function renderWifi(withInputs) {
+        var wifi = cfg.wifi || {};
+        var section = $('wifi-section');
+        section.classList.toggle('hidden', !wifi.ssid);
+        section.classList.toggle('compact', withInputs);
+        if (!wifi.ssid) return;
+        $('wifi-ssid').textContent = wifi.ssid;
+        $('wifi-password').textContent = wifi.password || '';
+        $('wifi-password-field').classList.toggle('hidden', !wifi.password);
+
+        var qr = $('wifi-qr');
+        qr.innerHTML = '';
+        var code = QR.svg(QR.wifiText(wifi));
+        if (code) qr.appendChild(code);
+        qr.classList.toggle('hidden', !code);
     }
 
     function applyInputStatus() {

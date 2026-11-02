@@ -15,6 +15,7 @@
                 <div id="time"><span id="time-main"></span><span id="time-suffix"></span></div>
                 <div id="date"></div>
             </header>
+            <img id="logo" class="logo hidden" alt="">
             <div id="gear" class="gear">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                     <circle cx="12" cy="12" r="3.2"/>
@@ -28,6 +29,24 @@
             <div id="inputs-section" class="shelf">
                 <h2>Consoles</h2>
                 <div class="row-viewport"><div id="inputs-row" class="row-track"></div></div>
+            </div>
+            <!-- Information only, never focused: guests read it, nobody needs to select it. -->
+            <div id="wifi-section" class="shelf hidden">
+                <h2>Wi-Fi</h2>
+                <div class="wifi-card">
+                    <div id="wifi-qr" class="wifi-qr"></div>
+                    <div class="wifi-text">
+                    <div class="wifi-field">
+                        <div class="wifi-label">Network</div>
+                        <div id="wifi-ssid" class="wifi-value"></div>
+                    </div>
+                    <div id="wifi-password-field" class="wifi-field">
+                        <div class="wifi-label">Password</div>
+                        <div id="wifi-password" class="wifi-value"></div>
+                    </div>
+                    <div class="wifi-hint">Scan with your phone camera to join</div>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -173,6 +192,7 @@
     <script src="js/appearance.js"></script>
     <script src="js/weather.js"></script>
     <script src="js/sound.js"></script>
+    <script src="js/qr.js"></script>
     <script src="js/ui.js"></script>
     <script src="js/render-probe.js"></script>
     <script src="js/platform-probe.js"></script>
